@@ -1,4 +1,18 @@
 <?php
+/*
+Plugin Name: CapCrafterAI
+Description: AI-powered Instagram caption generator based on hashtags, customizable tone, and length using OpenAI API.
+Version: 1.0
+Author: Anvansh
+*/
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 function capcrafterai_enqueue_assets() {
     wp_enqueue_style('capcrafterai-style', plugin_dir_url(__FILE__) . 'assets/style.css');
     wp_enqueue_script('capcrafterai-script', plugin_dir_url(__FILE__) . 'assets/script.js', array('jquery'), null, true);

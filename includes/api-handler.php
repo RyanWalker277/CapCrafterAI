@@ -5,7 +5,8 @@ function capcrafterai_generate_caption() {
     $length = sanitize_text_field($_POST['length']);
     $language = sanitize_text_field($_POST['language']);
 
-    $api_key = get_option('capcrafterai_openai_api_key');
+    $api_key = $_ENV['OPENAI_API_KEY'];
+    
     $prompt = "Generate an Instagram caption using the hashtags: $hashtags, with a $tone tone, and $length length, in $language.";
 
     $response = wp_remote_post('https://api.openai.com/v1/completions', array(
